@@ -2,9 +2,9 @@ package com.hemebiotech;
 
 import com.hemebiotech.core.*;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
-import java.util.Map;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
 
@@ -14,7 +14,7 @@ public class AnalyticsCounter {
         List symptoms = reader.getSymptoms();
         // get symptoms and occurences
         OccurenceSymptom occurenceSymptom = new OccurenceSymptomImpl();
-        Map dataSymptomsOccurences = occurenceSymptom.getSymptomsOccurence(symptoms);
+        TreeMap dataSymptomsOccurences = occurenceSymptom.getSymptomsOccurence(symptoms);
         // generate output
         GenerateSymptomOut generateSymptomOut = new GenerateSymptomOutImpl();
         String result =  generateSymptomOut.fileWriter(dataSymptomsOccurences);
