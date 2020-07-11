@@ -2,18 +2,18 @@ package com.hemebiotech.core;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Map;
+import java.util.TreeMap;
 
 public class GenerateSymptomOutImpl implements GenerateSymptomOut {
 
     @Override
-    public String fileWriter(Map<String, Integer> symptomOccurence) throws IOException {
+    public String fileWriter(TreeMap<String, Integer> symptomOccurence) throws IOException {
 
         String fileName = "result.out";
-        FileWriter writer = new FileWriter(fileName);
-        symptomOccurence.forEach((k,v)-> {
+        FileWriter writer = new FileWriter (fileName);
+        symptomOccurence.keySet().forEach((k)-> {
             try {
-                writer.write(k+":" + v + "\n");
+                writer.write(k+":" + symptomOccurence.get(k) + "\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }
